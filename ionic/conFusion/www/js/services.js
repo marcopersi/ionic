@@ -47,4 +47,32 @@ angular.module('conFusion.services', ['ngResource'])
 
         }])
 
+        .factory('favoriteFactory', ['$resource', 'baseURL', function($resource,baseURL) {
+              var favFac = {};
+              var favorites = [];
+
+              favFac.addToFavorites = function(index) {
+                  for (var i = 0; i<favorites.length; i++) {
+                    if (favorites[i].id == index)
+                      return;
+                  }
+                  favorites.push({id:index});
+              }
+
+              favFac.getFavorites = function() {
+                  return favorites;
+              }
+
+              favFac.deleteFromFavorites = function(index) {
+                  for (var i=0; i<favorites.length;i++)
+                  {
+                    if (favorites[i].id == index) {
+                      // splice is javascript array method to remove an element from the array.
+                      favorites.splice(i, 1);
+                    }
+                  }
+              }
+
+              return favFac;
+        }])
 ;
