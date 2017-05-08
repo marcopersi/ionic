@@ -232,7 +232,7 @@ angular.module('conFusion.controllers', [])
             template: 'Are you sure you want to delete this item ?'
         });
 
-        confirmPopup.then(function(res)) {
+        confirmPopup.then(function(res) {
             if(res) {
               console.log('Ok to delete');
               favoriteFactory.deleteFromFavorites(index);
