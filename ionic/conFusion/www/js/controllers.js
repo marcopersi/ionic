@@ -77,6 +77,17 @@ angular.module('conFusion.controllers', [])
       }, 1000);
   };
 
+  $ionicModal.fromTemplateUrl('templates/popover.html', {
+      scope: $scope
+  }).then(function(modal) {
+      $scope.popover = modal;
+  });
+  $scope.closePopover = function() {
+      $scope.popover.hide();
+  };
+  $scope.openPopover = function($event) {
+      $scope.popover.show($event);
+  };
 
 })
 .controller('MenuController', ['$scope', 'menuFactory','favoriteFactory', 'baseURL','$ionicListDelegate', function($scope, menuFactory, favoriteFactory, baseURL, $ionicListDelegate) {
