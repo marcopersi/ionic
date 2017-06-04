@@ -24,7 +24,7 @@ angular.module('conFusion.services', ['ngResource'])
                 // implement a function named getPromotion
                 // that returns a selected promotion.
                 this.getPromotion = function() {
-                    return   $resource(baseURL+"promotions/:id");;
+                    return $resource(baseURL+"promotions/:id");
                 }
         }])
 
